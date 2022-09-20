@@ -10,8 +10,8 @@ let parseddata = JSON.parse(rawdata);
 
 
 //req.query
-app.get('/getInfo', (req, res) => {
+app.get('/getInfo.json', (req, res) => {
     res.send(parseddata)
 })
 
-// app.listen(3000)
+app.listen(3000)
