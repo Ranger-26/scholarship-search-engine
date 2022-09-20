@@ -1,19 +1,17 @@
-const Df = require("dataframe-js");
 const express = require('express');
 const bodyParser = require('body-parser')
 const app = express()
 app.use(bodyParser.json())
 
-let data = new Df.DataFrame(Df.data, Df.columns)
-Df.DataFrame.fromCSV('backend/scholarshipdata.csv').then(d => {
-    data = d
-});
+const fs = require('fs');
 
-console.log(data)
+let rawdata = fs.readFileSync('./csvjson.json');
+let parseddata = JSON.parse(rawdata);
+
+
 //req.query
 app.get('/getInfo', (req, res) => {
-    let query = req.body.query;
-    
+    res.send(parseddata)
 })
 
 // app.listen(3000)
