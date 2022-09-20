@@ -22,9 +22,9 @@ export default function SearchBox(){
              <List>
                  {query === "Y" &&
                      <>
-                         <Scholarship sname = "Test"></Scholarship>
-                         <Scholarship sname = "Test"></Scholarship>
-                         <Scholarship sname = "Test"></Scholarship>
+                         {
+
+                         }
                      </>
                  }
              </List>
