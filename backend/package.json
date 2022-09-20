@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "csv-stringify": "^6.2.0",
     "dataframe-js": "^1.4.4",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20"
   }
 }
