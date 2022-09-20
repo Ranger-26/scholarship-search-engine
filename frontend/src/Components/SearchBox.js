@@ -1,9 +1,13 @@
 import TextField from "@mui/material/TextField";
 import {Box, List} from "@mui/material";
 import Scholarship from "./Scholarship";
+import {useState} from "react";
 
 export default function SearchBox(){
- return(
+
+    const [query, setQuery] = useState("");
+
+    return(
      <div className="main">
          <div className="search">
              <TextField
@@ -11,16 +15,20 @@ export default function SearchBox(){
                  variant="outlined"
                  fullWidth
                  label="Search"
+                 onChange={(event) => setQuery(event.target.value)}
              />
          </div>
          <Box sx={{ width: '30%', maxWidth: 450, bgcolor: 'white' }}>
              <List>
-                <Scholarship sname={"Niche's 50k No-Essay Scholarship"}></Scholarship>
-                <Scholarship sname={"Niche's 50k No-Essay Scholarship"}></Scholarship>
-                <Scholarship sname={"Niche's 50k No-Essay Scholarship"}></Scholarship>
+                 {query === "Y" &&
+                     <>
+                         <Scholarship sname = "Test"></Scholarship>
+                         <Scholarship sname = "Test"></Scholarship>
+                         <Scholarship sname = "Test"></Scholarship>
+                     </>
+                 }
              </List>
          </Box>
-
      </div>
  )
 }
