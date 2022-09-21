@@ -17,16 +17,6 @@ app.get('/getInfo.json', (req, res) => {
     res.send(rawdata);
 })
 
-function filter(query){
-    if (query === "") return parseddata;
-    let newdata = []
-    for (let i = 0; i < rawdata.length; i++){
-        if (parseddata[i]["name of scholarship"].match(query)){
-            newdata.push(parseddata[i]);
-        }
-    }
-    return newdata;
-}
 
 
 app.listen(3000);

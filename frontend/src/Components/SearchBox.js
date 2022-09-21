@@ -1,16 +1,51 @@
 import TextField from "@mui/material/TextField";
-import {Box, List} from "@mui/material";
+import {Box, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import Scholarship from "./Scholarship";
+import data from "../Logic";
 import {useState} from "react";
-import Logic from "../Logic";
-import allJsonData from "../Logic";
+
+function filter(query){
+    if (query === "") return data;
+    let newdata = []
+    for (let i = 0; i < data.length; i++){
+        if (data[i]["name of scholarship"].match(query)){
+            newdata.push(data[i]);
+        }
+    }
+    return newdata;
+}
+
+
+function getStuff(query){
+    return filter(query).map((number) =>
+        <ListItem>
+            <ListItemButton>
+                <ListItemText primary={number["name of scholarship"]}></ListItemText>
+            </ListItemButton>
+        </ListItem>
+    );
+}
+
+
+
 export default function SearchBox(props){
 
     const [query, setQuery] = useState("");
 
     function OnQuery(query){
         setQuery(query);
-        console.log(allJsonData)
+    }
+
+    function filter(query){
+        if (query === "") return data;
+        let newdata = []
+        for (let i = 0; i < data.length; i++){
+            if (data[i]["name of scholarship"].match(query)){
+                newdata.push(data[i]);
+            }
+        }
+        console.log(newdata);
+        return newdata;
     }
 
     return(
@@ -25,9 +60,7 @@ export default function SearchBox(props){
              />
          </div>
          <Box sx={{ width: '30%', maxWidth: 450, bgcolor: 'white' }}>
-             <List>
-
-             </List>
+             <List>{getStuff(query)}</List>
          </Box>
      </div>
      )
