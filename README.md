@@ -1,2 +1,2 @@
 # scholarship-search-engine
-Run both the server and client index.js file
+Run the client index.js file
